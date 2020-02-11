@@ -49,5 +49,16 @@ Park.prototype.yearRevenue = function(){
   return this.yearVisitors() * this.ticketPrice;
 };
 
+// Remove all dinosaurs of a particular species
+Park.prototype.removeDinoSpecies = function(species){
+  safeDinos = [];
+  for (const dinosaur of this.dinosaurs){
+    if (dinosaur.species !== species){
+      safeDinos.push(dinosaur);
+    };
+  };
+  this.dinosaurs = safeDinos;
+};
+
 
 module.exports = Park;

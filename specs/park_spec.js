@@ -10,6 +10,7 @@ describe('Park', function() {
     dinosaur3 = new Dinosaur('diplodocus', 'herbivore', 30);
     dinosaur4 = new Dinosaur('oviraptor', 'omnivore', 10);
     dinosaur5 = new Dinosaur('stegosaurus', 'herbivore', 25);
+    dinosaur6 = new Dinosaur('t-rex', 'carnivore', 20);
     park = new Park('Dino-mite Park', 10, [dinosaur1, dinosaur2, dinosaur3]);
   })
 
@@ -74,6 +75,14 @@ describe('Park', function() {
   it('should be able to calculate total revenue for one year', function(){
     const actual = park.yearRevenue();
     const expected = 237250;
+    assert.strictEqual(actual, expected);
+  });
+
+  it('should be able to remove dinosaurs of species', function(){
+    park.addDino(dinosaur6);
+    park.removeDinoSpecies('t-rex')
+    const actual = park.dinosaurs.length;
+    const expected = 2;
     assert.strictEqual(actual, expected);
   });
 

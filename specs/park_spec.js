@@ -86,4 +86,11 @@ describe('Park', function() {
     assert.strictEqual(actual, expected);
   });
 
+  it('should be able to create object of diet', function(){
+    park.addDino(dinosaur6);
+    const actual = park.dinoDiet();
+    const expected = {'carnivore': 3, 'herbivore': 1};
+    assert.deepEqual(actual, expected);
+  });
+
 });

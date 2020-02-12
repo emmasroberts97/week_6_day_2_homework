@@ -60,5 +60,26 @@ Park.prototype.removeDinoSpecies = function(species){
   this.dinosaurs = safeDinos;
 };
 
+//Create object of diets
+Park.prototype.findDinoDiet = function(type){
+  let found = [];
+  for (const dinosaur of this.dinosaurs){
+    if (dinosaur.diet === type){
+      found.push(dinosaur)
+    };
+  };
+  return found;
+};
+
+Park.prototype.dinoDiet = function(){
+  let dinoDiet = {};
+  for (const dinosaur of this.dinosaurs){
+    let key = dinosaur.diet;
+    let value = (this.findDinoDiet(dinosaur.diet)).length;
+    dinoDiet[key] = value;
+  };
+  return dinoDiet;
+};
+
 
 module.exports = Park;
